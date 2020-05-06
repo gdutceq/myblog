@@ -13,7 +13,7 @@ import ShowBlogs from './components/ShowBlogs'
 import BlogHeader from './components/BlogHeader'
 
 export default {
-  name: 'App',
+  name: "App",
   components: {
     AddBlog,
     ShowBlogs,

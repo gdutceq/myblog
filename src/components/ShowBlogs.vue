@@ -46,28 +46,28 @@
       ).then(
         //这里的data参数为上一个then里面函数的返回值
          (data) => {
-          var blogsArray = [];
+          var blogsArray = []
           for (let key in data) {
-            data[key].id = key;
-            blogsArray.push(data[key]);
+            data[key].id = key
+            blogsArray.push(data[key])
           }
-          this.blogs = blogsArray;
+          this.blogs = blogsArray
           // console.log(this.blogs)
         }
       )
     },
     computed: {
-      //实现搜索博客
+        //实现搜索博客
       filteredBlog: function () {
         return this.blogs.filter((blog) => {
-          return blog.title.match(this.search);
+          return blog.title.match(this.search)
         })
       }
     },
     //在一个组件的选项中定义本地的过滤器
     filters: {
       "to-uppercase": function (value) {
-        return value.toUpperCase();
+        return value.toUpperCase()
       }
     },
     //注册局部自定义指令
