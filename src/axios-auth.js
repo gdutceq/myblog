@@ -1,9 +1,9 @@
-import axios from 'axios'
+import axios from 'axios';
 
 const instance = axios.create({
-  baseURL:"https://wd7355665222mkmqjm.wilddogio.com"
-})
+  baseURL: 'https://wd7355665222mkmqjm.wilddogio.com',
+});
 
-instance.defaults.headers.common['SOMETHING'] = 'SOMETHING'
+instance.defaults.headers.common.SOMETHING = 'SOMETHING';
 
-export default instance
+export default instance;

@@ -17,44 +17,45 @@
 
 <script>
   export default {
-    name: "single-blog",
-    data(){
-      return{
+    name: 'single-blog',
+    data () {
+      return {
         // 获取路由参数id
         // $route.params,可以说于$route是一个中间容器,
         // 用来容纳参数,是键值对的方式,这样在这个页面(ShowBlog)执行动作传递参数到$route.params,
         // 在另外一个页面(SingleBlog)就能从$route.params里拿参数
-        id:this.$route.params.id,
-        blog:{}
+        id: this.$route.params.id,
+        blog: {}
       }
     },
-    created(){
-      this.$http.get("https://wd7355665222mkmqjm.wilddogio.com/posts/" + this.id +
-      ".json").then(
+    created () {
+      this.$http.get('https://wd7355665222mkmqjm.wilddogio.com/posts/' + this.id +
+      '.json').then(
         function (data) {
           return data.json()
           // this.blog = data.body;
         }
       ).then(
         function (data) {
-          this.blog = data;
+          this.blog = data
         }
       )
     },
-    methods:{
-      deleteSingleBlog(){
-        this.$http.delete("https://wd7355665222mkmqjm.wilddogio.com/posts/" + this.id +
-          ".json").then(
+    methods: {
+      deleteSingleBlog () {
+        this.$http.delete('https://wd7355665222mkmqjm.wilddogio.com/posts/' + this.id +
+          '.json').then(
             response => {
-              //路由跳转
+              // 路由跳转
               // 由于动态路由也是传递params的，
               // 所以在 this.$router.push() 方法中 path不能和params一起使用，否则params将无效。需要用name来指定页面。
-              this.$router.push({path:'/'})
+              this.$router.push({path: '/'})
             }
         )
       }
     }
   }
+  let a = 'ff'
 </script>
 
 <style scoped>

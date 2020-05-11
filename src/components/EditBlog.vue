@@ -47,40 +47,40 @@
   export default {
     //  https://jsonplaceholder.typicode.com/
     //  https://jsonplaceholder.typicode.com/posts
-    name: "add-blog",
-    data() {
+    name: 'add-blog',
+    data () {
       return {
-        id:this.$route.params.id,
+        id: this.$route.params.id,
         blog: {},
-        authors: ["ceq", "ljy", "lhh", "zps"],
+        authors: ['ceq', 'ljy', 'lhh', 'zps'],
         submited: false
       }
     },
     methods: {
       put: function () {
-        this.$http.put("https://wd7355665222mkmqjm.wilddogio.com/posts/" + this.id +
-          ".json", this.blog).then(
+        this.$http.put('https://wd7355665222mkmqjm.wilddogio.com/posts/' + this.id +
+          '.json', this.blog).then(
             function (data) {
-              console.log(data);
+              console.log(data)
               this.submited = true
-        })
+            })
       },
-      fetchData(){
+      fetchData () {
         // console.log(this.id);
         // 请求页面
-        this.$http.get("https://wd7355665222mkmqjm.wilddogio.com/posts/" + this.id +
-          ".json").then(
+        this.$http.get('https://wd7355665222mkmqjm.wilddogio.com/posts/' + this.id +
+          '.json').then(
           response => {
             // console.log(response.body);
-            this.blog = response.body;
+            this.blog = response.body
           }
 
         )
       }
     },
-    created(){
-      this.fetchData();
-    }
+    created () {
+      this.fetchData()
+  }
   }
 </script>
 

@@ -20,61 +20,61 @@
   import axios from 'axios'
 
   export default {
-    name: "show-blogs",
-    data() {
+    name: 'show-blogs',
+    data () {
       return {
-        //用于存储后台返回的数据
+        // 用于存储后台返回的数据
         blogs: [],
-        search: ""
+        search: ''
       }
     },
-    created() {
-      //如果要请求本地文件，只能放在static文件夹下
-      /*this.$http.get("https://wd7355665222mkmqjm.wilddogio.com/posts.json").then(
+    created () {
+      // 如果要请求本地文件，只能放在static文件夹下
+      /* this.$http.get("https://wd7355665222mkmqjm.wilddogio.com/posts.json").then(
         function (data) {
           // console.log(data.json);
           // json数据解析为对象
           return data.json()
         }
-      )*/
-      axios.get("/posts.json").then(
+      ) */
+      axios.get('/posts.json').then(
         function (response) {
           // console.log(data.json);
           // return data.json() 这里就不用这样获取数据了
           return response.data
         }
       ).then(
-        //这里的data参数为上一个then里面函数的返回值
+        // 这里的data参数为上一个then里面函数的返回值
          (data) => {
-          var blogsArray = []
-          for (let key in data) {
-            data[key].id = key
-            blogsArray.push(data[key])
-          }
-          this.blogs = blogsArray
+           var blogsArray = []
+           for (let key in data) {
+             data[key].id = key
+             blogsArray.push(data[key])
+           }
+           this.blogs = blogsArray
           // console.log(this.blogs)
-        }
+         }
       )
     },
     computed: {
-        //实现搜索博客
+        // 实现搜索博客
       filteredBlog: function () {
         return this.blogs.filter((blog) => {
           return blog.title.match(this.search)
         })
       }
     },
-    //在一个组件的选项中定义本地的过滤器
+    // 在一个组件的选项中定义本地的过滤器
     filters: {
-      "to-uppercase": function (value) {
+      'to-uppercase': function (value) {
         return value.toUpperCase()
       }
     },
-    //注册局部自定义指令
+    // 注册局部自定义指令
     directives: {
-      "rainbow": {
-        bind(el, binding, vnode) {
-          el.style.color = "#" + Math.random().toString(16).slice(2, 8);
+      'rainbow': {
+        bind (el, binding, vnode) {
+          el.style.color = '#' + Math.random().toString(16).slice(2, 8)
         }
       }
     }

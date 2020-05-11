@@ -48,16 +48,16 @@
   export default {
     //  https://jsonplaceholder.typicode.com/
     //  https://jsonplaceholder.typicode.com/posts
-    name: "add-blog",
-    data() {
+    name: 'add-blog',
+    data () {
       return {
         blog: {
-          title: "",
-          content: "",
+          title: '',
+          content: '',
           categories: [],
-          author: ""
+          author: ''
         },
-        authors: ["ceq", "ljy", "lhh", "zps"],
+        authors: ['ceq', 'ljy', 'lhh', 'zps'],
         submited: false
       }
     },
@@ -66,12 +66,12 @@
         // axios替换vue-resource
         // this.$http.post("https://wd7355665222mkmqjm.wilddogio.com/posts.json", this.blog)
         // var _this = this;
-        axios.post("/posts.json", this.blog).then(
+        axios.post('/posts.json', this.blog).then(
           (data) => {
           // console.log(data);
-          //这里面axios的this不指向vue,所以在使用axios是最好使用es6箭头函数
-          this.submited = true;
-        })
+          // 这里面axios的this不指向vue,所以在使用axios是最好使用es6箭头函数
+            this.submited = true
+          })
       }
     }
   }
