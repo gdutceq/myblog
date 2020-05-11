@@ -10,18 +10,6 @@
     "build": "node build/build.js",
     "lint": "eslint --fix --ext .js,.vue src"
   },
-  "husky": {
-    "hooks": {
-      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS",
-      "pre-commit": "lint-staged"
-    }
-  },
-  "lint-staged": {
-    "*.{js,vue,ts}": [
-      "eslint",
-      "prettier --write"
-    ]
-  },
   "dependencies": {
     "axios": "^0.18.0",
     "eslint-config-vue": "^2.0.2",
